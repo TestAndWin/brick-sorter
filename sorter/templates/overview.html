@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Brick Sorter</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+      }
+
+      .row {
+        margin-left: -5px;
+        margin-right: -5px;
+      }
+
+      .column {
+        float: left;
+        padding: 5px;
+      }
+
+      /* Clearfix (clear floats) */
+      .row::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+
+      tr.status_r,
+      tr.status_True {
+        background-color: #4caf50;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+      // There is a better way to do that, but it is fine in the case
+      if ("True" === "{{detection}}") {
+        setInterval(function () {
+          $("#predict").load("/last-predict").html();
+          $("#latest").attr("src", "/latest.jpg?" + Date.now());
+        }, 1000);
+      }
+    </script>
+  </head>
+
+  <body>
+    <h1>Brick Sorter</h1>
+
+    <div class="row">
+      <div class="column">
+        <table>
+          <tr>
+            <td><a href="/start-transport">Start transport</a></td>
+            <td><a href="/stop-transport">Stop transport</a></td>
+          </tr>
+          <tr class="status_{{detection}}">
+            <td><a href="/start-detection">Start detection</a></td>
+            <td><a href="/stop-detection">Stop detection</a></td>
+          </tr>
+          <tr class="status_{{belt}}">
+            <td><a href="/start-belt">Start belt</a></td>
+            <td><a href="/stop-belt">Stop belt</a></td>
+          </tr>
+          <tr class="status_{{plate}}">
+            <td><a href="/start-plate">Start plate</a></td>
+            <td><a href="/stop-plate">Stop plate</a></td>
+          </tr>
+          <tr class="status_{{gate}}">
+            <td><a href="/start-gate">Start gate</a></td>
+            <td><a href="/stop-gate">Stop gate</a></td>
+          </tr>
+          <tr>
+            <td><a href="/move-stepper?pos=1">Move stepper +1</a></td>
+            <td><a href="/move-stepper?pos=-1">Move stepper -1</a></td>
+          </tr>
+          <tr>
+            <td><a href="/move-hub?slot=5">Move hub to pos 5</a></td>
+            <td><a href="/move-hub?slot=0">Move hub to pos 0</a></td>
+          </tr>
+          <tr>
+            <td colspan="2"><a href="/take-picture">Take picture</a></td>
+          </tr>
+        </table>
+      </div>
+      <div class="column">
+        <table>
+          <tr>
+            <td>Last Predict</td>
+            <td><div id="predict"></div></td>
+          </tr>
+          <tr>
+            <td colspan="2"><img id="latest" src="" /></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
