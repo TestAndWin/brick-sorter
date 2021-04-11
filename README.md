@@ -1,13 +1,13 @@
 # brick-sorter
 Machine to sort bricks using machine learning. A Raspiberry PI is used to control the individual motors and to take the images. The images are then sent to another computer, which uses the ML model to make a prediction of what type of brick it is. The sorter is operated via an HTML interface.
 
-# Flow
-You can see how the sorter works in this [video](Brick_Sorter.mp4).
+More details and a video of the brick sorter can be found [here](https://testandwin.net/software-development/brick-sorter/).
 
+# Flow
 - Place bricks in the feeder by the conveyor belt.
 - Belt moves bricks to a vibrating plate.
 - Vibrating plate tries to get the bricks into a sequence
-- To get only one brick on the image plate, a Gate opens for a very short time and then closes it again the gate (in a loop).
+- To get only one brick on the plate, a Gate opens for a very short time and then closes it again the gate (in a loop).
 - If a brick is detected on the tilt plate, a image is taken and the belt, plate and gate are stopped.
 - Brick image is sent to a server.
 - Server uses the learned model and tries to determine the brick type and returns the type. The server stores also the image in the images directory.
