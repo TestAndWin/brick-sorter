@@ -4,7 +4,7 @@ numpy==1.22
 Keras==2.4.3
 eventhandler==1.2.1
 requests==2.25.1
-Flask==1.1.2
+Flask==2.3.2
 gpiozero==1.6.2
 picamera==1.13
 # had been 9.0.0 before
