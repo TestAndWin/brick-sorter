@@ -3,7 +3,8 @@ opencv_contrib_python==4.5.1.48
 numpy==1.22
 Keras==2.4.3
 eventhandler==1.2.1
-requests==2.25.1
+#requests==2.25.1
+requests==2.31.0
 #Flask==1.1.2
 Flask=2.3.2
 gpiozero==1.6.2
