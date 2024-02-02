@@ -12,4 +12,5 @@ picamera==1.13
 # had been 9.0.0 before
 Pillow==10.2.0
 # had been 8.3.2 before
-scikit_learn==0.24.1
+scikit_learn==1.0.1
+# had been before 0.24.1
