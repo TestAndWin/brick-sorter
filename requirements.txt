@@ -1,7 +1,9 @@
-opencv_contrib_python==4.5.1.48
+# before 4.5.1.48
+opencv_contrib_python==4.8.1.78
 # numpy==1.19.4
 numpy==1.22
-Keras==2.4.3
+# had been 2.4.3 before
+Keras=2.13.1rc0
 eventhandler==1.2.1
 #requests==2.25.1
 requests==2.32.0
